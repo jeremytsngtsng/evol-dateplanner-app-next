@@ -50,7 +50,10 @@ export default function RootStyleRegistry({ children }: { children: React.ReactN
                   boxSizing: 'border-box',
                 },
                 html: {
+                  whitespace: 'nowrap',
+                  overflowX: 'hidden',
                   overflowY: 'scroll',
+                  textOverflow: 'ellipsis',
                   overscrollBehaviorY: 'none',
                   display: 'flex',
                   flexDirection: 'row',
@@ -62,21 +65,26 @@ export default function RootStyleRegistry({ children }: { children: React.ReactN
                   margin: 0,
                   backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
                   [`@media (max-width: ${theme.breakpoints.md}px)`]: {
-                    width: '100%',
+                    minWidth: `${theme.breakpoints.xs}px`
+                  },
+                  [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
+                    minWidth: '100%'
                   },
                 },
-
+                '.root-layout': {
+                  [`@media (max-width: ${theme.breakpoints.md}px)`]: {
+                    minWidth: `${theme.breakpoints.xs}px`
+                  },
+                  [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
+                    minWidth: '100%'
+                  },
+                },
                 main: {
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'flex-start',
                 },
 
-                '.root-layout': {
-                  [`@media (max-width: ${theme.breakpoints.md}px)`]: {
-                    width: '100%',
-                  },
-                }
               });
             },
           }}

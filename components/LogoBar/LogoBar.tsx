@@ -66,7 +66,7 @@ export function LogoBar({ links }: LogoBarProps) {
   return (
     <Header height={56} className={classes.header} mb={120}>
       <div className={classes.inner}>
-        <Group>
+        <Group style={{ flexWrap: 'nowrap' }}>
           <Burger opened={opened} onClick={toggle} size="sm" />
           <MantineLogo size={28} />
         </Group>
